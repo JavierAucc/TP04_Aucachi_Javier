@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es" >
+<head>
+	<meta charset="UTF-8">
+	<title>TRABAJO PRACTICO N4</title>
+<!-- 	<link  href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+<!--       Import materialize.css -->
+<!--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+	<link rel="stylesheet" data-th-href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+	<body>
+		<div class="container">
+		
+		<header>
+				<div data-th-replace="~{fragments/header::navbar}">
+				
+				</div>
+		</header>
+		<main>
+			<h1>HOLA MUNDOOO</h1>
+			
+		</main>
+		<aside>
+			<h1>asaid</h1>
+			</aside>
+		<footer>
+			<div data-th-replace="~{fragments/header::paginacion}">
+			
+			</div>
+		</footer>
+		
+		</div>
+		
+<!-- 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+		<script data-th-href="@/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script> 
+	</body>
+</html>
