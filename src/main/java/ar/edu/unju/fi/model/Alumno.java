@@ -12,7 +12,7 @@ public class Alumno {
 	private String telefono;
 	private LocalDate fnacimiento;
 	private String domicilio;
-	private int lu;
+	private String lu;
 	
 	public Alumno() {
 		// TODO Auto-generated constructor stub
@@ -74,11 +74,11 @@ public class Alumno {
 		this.domicilio = domicilio;
 	}
 
-	public int getLu() {
+	public String getLu() {
 		return lu;
 	}
 
-	public void setLu(int lu) {
+	public void setLu(String lu) {
 		this.lu = lu;
 	}
 	

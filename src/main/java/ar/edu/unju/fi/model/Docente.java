@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Docente {
-	private int legajo;
+	private String legajo;
 	private String nombre;
 	private String apellido;
 	private String email;
@@ -14,11 +14,11 @@ public class Docente {
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getLegajo() {
+	public String getLegajo() {
 		return legajo;
 	}
 
-	public void setLegajo(int legajo) {
+	public void setLegajo(String legajo) {
 		this.legajo = legajo;
 	}
 

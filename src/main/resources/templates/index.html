@@ -10,9 +10,9 @@
 	<body>
 		<div class="container" >
 					<header id="header" >
-						<nav data-th-replace="~{fragments/header::navbar}">
+						<nav data-th-replace="~{fragments/header::nav}">
 						</nav>
-						<div  data-th-replace="~{fragments/header::ntabs}">
+						<div data-th-replace="~{fragments/header::ntabs}">
 						</div>
 					</header>
 			<div class=row>
@@ -27,10 +27,14 @@
 					</div>
 				</aside>
 			</div >	
+			<div>
+					
+			</div>
+			
 			<footer data-th-replace="~{fragments/header::foot}">
 			</footer>
 		</div>
-		<script data-th-href="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"
+		<script data-th-href="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"
 		type="text/javascript"></script> 
 	</body>
 </html>
