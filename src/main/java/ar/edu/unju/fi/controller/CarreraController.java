@@ -15,7 +15,7 @@ import ar.edu.unju.fi.model.Carrera;
 public class CarreraController {
 
 	@Autowired
-	Carrera nuevaCarrera = new Carrera();
+	Carrera nuevaCarrera;
 	
 	@GetMapping("/formularioCarrera")
 	public ModelAndView getFormCarrera() {
@@ -23,7 +23,7 @@ public class CarreraController {
 		ModelAndView modelView = new ModelAndView("formCarrera");
 		//agrega el objeto
 		modelView.addObject("nuevaCarrera", nuevaCarrera);
-		
+		modelView.addObject("band",false);
 		return modelView;
 	}
 	
@@ -50,8 +50,23 @@ public class CarreraController {
 		return modelView;
 		
 	}
+	@GetMapping("/modificarCarrera/{codigo}")
+	public ModelAndView getModificarCarrera(@PathVariable(name="codigo") String codigo) {
+		Carrera carrera = ListadoCarreras.buscarCarreraPorCodigo(codigo);
+		//ModelAndView modelView = new ModelAndView("modificarCarrera");
+		ModelAndView modelView = new ModelAndView("formCarrera");
+		modelView.addObject("nuevaCarrera", carrera);
+		modelView.addObject("band",true);
+		return modelView;
+	}
+	@PostMapping("/modificarCarrera")
+	public ModelAndView modificarCarrera(@ModelAttribute("carrera") Carrera carreraModificada) {
+		ListadoCarreras.modificarCarrera(carreraModificada);
+		ModelAndView modelView = new ModelAndView("views/listaDeCarreras");
+		modelView.addObject("listadoCarreras",ListadoCarreras.listarCarreras());
+		return modelView;
 	
-	
+	}
 	
 	
 }
