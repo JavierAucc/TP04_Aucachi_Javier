@@ -10,14 +10,24 @@ public class Materia {
 	private String curso;
 	private Integer horas;
 	private String modalidad;
-	
 	private Docente docente;
-	
 	private Carrera carrera;
+	private Boolean estado;
 	
 	public Materia() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+	public Boolean getEstado() {
+		return estado;
+	}
+
+
+	public void setEstado(Boolean estado) {
+		this.estado = estado;
+	}
+
 
 	public String getCodigo() {
 		return codigo;

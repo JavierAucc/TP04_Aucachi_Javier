@@ -9,10 +9,22 @@ public class Docente {
 	private String apellido;
 	private String email;
 	private String telefono;
+	private Boolean estado;
 	
 	public Docente() {
 		// TODO Auto-generated constructor stub
 	}
+
+	
+	public Boolean getEstado() {
+		return estado;
+	}
+
+
+	public void setEstado(Boolean estado) {
+		this.estado = estado;
+	}
+
 
 	public String getLegajo() {
 		return legajo;

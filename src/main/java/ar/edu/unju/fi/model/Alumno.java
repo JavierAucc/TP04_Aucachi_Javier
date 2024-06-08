@@ -13,9 +13,17 @@ public class Alumno {
 	private LocalDate fnacimiento;
 	private String domicilio;
 	private String lu;
-	
+	private Boolean estado;
 	public Alumno() {
 		// TODO Auto-generated constructor stub
+	}
+	
+	public Boolean getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Boolean estado) {
+		this.estado = estado;
 	}
 
 	public String getDni() {

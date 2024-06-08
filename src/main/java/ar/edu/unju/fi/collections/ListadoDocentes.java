@@ -2,6 +2,9 @@ package ar.edu.unju.fi.collections;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
 
 import ar.edu.unju.fi.model.Docente;
 
@@ -12,10 +15,10 @@ public class ListadoDocentes {
 	
 	//lista carreras
 		public static List<Docente> listarDocentes(){
-			
-			return docentes;
+			Predicate<Docente> disponible = c -> c.getEstado().equals(true);		
+			return docentes.stream().filter(disponible).collect(Collectors.toList());
 		}
-		//busca carreras por codigo
+		//busca carreras por legajo
 		public static Docente buscarDocentePorLegajo(String leg) {
 			for(Docente d : docentes) {
 				if(d.getLegajo().equals(leg)) {
@@ -26,6 +29,7 @@ public class ListadoDocentes {
 		}
 		//agregar carrera
 		public static void agregarDocente(Docente d) {
+			d.setEstado(true);
 			docentes.add(d);
 		}
 		//modificar
@@ -40,7 +44,14 @@ public class ListadoDocentes {
 		}
 		//eliminar
 		public static void eliminarDocente(String legajo) {
-			docentes.removeIf(docente -> docente.getLegajo().equals(legajo));
+			//docentes.removeIf(docente -> docente.getLegajo().equals(legajo));
+			for(int i = 0; i < docentes.size(); i++) {
+				Docente docente = docentes.get(i);
+				if(docente.getLegajo().equals(legajo)) {
+					docente.setEstado(false);
+					break;
+				
+				}
+			}
 		}
-	
 }

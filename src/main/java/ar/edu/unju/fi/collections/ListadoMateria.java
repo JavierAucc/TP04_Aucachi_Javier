@@ -2,6 +2,8 @@ package ar.edu.unju.fi.collections;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import ar.edu.unju.fi.model.Materia;
 
@@ -13,7 +15,8 @@ public class ListadoMateria {
 	
 	//lista carreras
 	public static List<Materia> listarMaterias(){
-		return materias;
+		Predicate<Materia> disponible = c -> c.getEstado().equals(true);		
+		return materias.stream().filter(disponible).collect(Collectors.toList());
 	}
 	//busca carreras por codigo
 	public static Materia buscarMateriaPorCodigo(String cod) {
@@ -26,6 +29,7 @@ public class ListadoMateria {
 	}
 	//agregar carrera
 	public static void agregarMateria(Materia m) {
+		m.setEstado(true);
 		materias.add(m);
 	}
 	//modificar
@@ -40,7 +44,15 @@ public class ListadoMateria {
 	}
 	//eliminar
 	public static void eliminarMateria(String cod) {
-		materias.removeIf(materia -> materia.getCodigo().equals(cod));
+		//materias.removeIf(materia -> materia.getCodigo().equals(cod));
+		for(int i = 0; i < materias.size(); i++) {
+			Materia materia = materias.get(i);
+			if(materia.getCodigo().equals(cod)) {
+				materia.setEstado(false);
+				break;
+			}
+		}
+		
 	}
 	
 	

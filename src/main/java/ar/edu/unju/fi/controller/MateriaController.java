@@ -20,7 +20,7 @@ public class MateriaController {
 	
 	@GetMapping("/formularioMateria")
 	public ModelAndView getFormMateria() {
-	//vista carrera
+		//vista carrera
 		ModelAndView modelView = new ModelAndView("formMateria");
 		
 		//agrega el objeto
