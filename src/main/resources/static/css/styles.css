@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+.header{
+	background-color:rgba(44,247,219,0.4);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 300px;
+	font-weight: 700;
+	font-style:"Times New Roman";
+	font-size:24pt;
+	padding:20px;
+	margin:60px;
+	flex:2;
+	
+}
