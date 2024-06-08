@@ -31,17 +31,17 @@
 				      <td data-th-text="${materia.curso}"></td>
 				      <td data-th-text="${materia.horas}"></td>
 				      <td data-th-text="${materia.modalidad}"></td>
-				      <td data-th-text="${materia.docente}"></td>
-				      <td data-th-text="${materia.carrera}"></td>
+				      <td data-th-text="${materia.docente.apellido}"></td>
+		      		  <td data-th-text="${materia.carrera.nombre}"></td>
 				      <td>
-				      		<a data-th-href="@{'/borrarAlumno/'+${alumno.lu}}" class="btn btn-outline-danger">Borrar</a>
-				      		<a data-th-href="@{'/modificarAlumno/'+${alumno.lu}}" class="btn btn-outline-warning">Modificar</a>
+				      		<a data-th-href="@{'/borrarMateria/'+${materia.codigo}}"  class="btn btn-outline-danger">Borrar</a>
+				      		<a data-th-href="@{'/modificarMateria/'+${materia.codigo}}" class="btn btn-outline-warning">Modificar</a>
 				      </td>
 				    </tr>
 					</tbody>
 			</table>
 		<div class="d-grid gap-2 col-6 mx-auto" >
-				<a href="formularioAlumno" class="button btn btn-primary">Volver</a>
+				<a href="formularioMateria" class="button btn btn-primary">Volver</a>
 			</div>
 
 	<footer data-th-replace="~{layouts/footer::foot}"></footer>

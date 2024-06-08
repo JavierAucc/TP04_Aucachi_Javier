@@ -14,7 +14,7 @@
 		<header data-th-replace="~{layouts/header::nav}"></header>
 			<h1 class="text-center">Formulario Materia</h1>
 		 <form data-th-object="${nuevaMateria}"
-		 data-th-action="@{/guardarMateria}" method="post">
+		 data-th-action="${band}?@{/modificarMateria}:@{guardarMateria}" method="post">
 		 
 		 	<div class="container row">
 			 	<div class="col-8">
@@ -22,7 +22,7 @@
 		 
 					  <div class="col-md-12" >
 					    <label for="codigo" class="form-label">Codigo de Materia</label>
-					    <input type="text" class="form-control" id="codigo" data-th-field="*{codigo}">
+					    <input type="text" class="form-control" id="codigo" data-th-field="*{codigo}" data-th-readonly=${band}>
 					    
 					  </div>
 					  <div class="col-md-12">
@@ -42,19 +42,32 @@
 					  
 					   <div class="col-md-12">
 					    <label for="modo" class="form-label">Modalidad</label>
-					    <input type="text" class="form-control" id="modo" data-th-field="*{modalidad}">
+					    <select id="modo" class="form-control" data-th-field="*{modalidad}">
+					    	<option value="">Seleccionar Modalidad</option>
+					    	<option value="Virtual">Virtual</option>
+					    	<option value="Presencial">Presencial</option>
+					    	<option value="Mixta">Mixta</option>
+					    </select>
 					  </div>
 					  
 					   <div class="col-md-12">
-					    <label for="docente" class="form-label">Docente</label>
-					    <input type="text" class="form-control" id="docente" data-th-field="*{docente}">
+					   		<label for="docente" class="form-label">Docente</label>
+					   			<select id="docente" data-th-field="*{docente.legajo}" class="form-control" required>
+						    		<option value="">Seleccionar Docente</option>
+						    		<option data-th-value="${d.legajo}" data-th-each="d:${listadoDocentes}" data-th-text="${d.apellido}"></option>
+						   	 	</select>
+
 					  </div>
 					  
 					  <div class="col-md-12">
 					    <label for="carrera" class="form-label">Carrera</label>
-					    <input type="text" class="form-control" id="carrera" data-th-field="*{carrera}">
+					    	<select id="carrera" data-th-field="*{carrera.codigo}" class="form-control" required>
+						    	<option value="">Seleccionar Carrera</option>
+						    	<option data-th-value="${c.codigo}" data-th-each="c:${listadoCarreras}" data-th-text="${c.nombre}"></option>
+						   	 </select>
+					    
 					  </div>
-					  <button type="submit" class="btn btn-outline-success">Guardar Materia</button>
+  					<button type="submit" class="btn btn-outline-success">Guardar Materia</button>
 
 					  </div> 
 			   	<div class="col-4">

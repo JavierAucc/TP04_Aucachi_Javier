@@ -12,6 +12,7 @@ public class ListadoDocentes {
 	
 	//lista carreras
 		public static List<Docente> listarDocentes(){
+			
 			return docentes;
 		}
 		//busca carreras por codigo

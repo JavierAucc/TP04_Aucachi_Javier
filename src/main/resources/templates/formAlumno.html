@@ -13,12 +13,12 @@
 			<header data-th-replace="~{layouts/header::nav}"></header>
 				<h1 class="text-center">Formulario Alumno</h1>
 			 <form data-th-object="${nuevoAlumno}"
-			 data-th-action="@{/guardarAlumno}" method="post">
+			 data-th-action="${band}?@{/modificarAlumno}:@{guardarAlumno}" method="post">
 			 <div class="container row">
 			 	<div class="col-8">
 						  <div class="col-md-12">
 						    <label for="lu" class="form-label">Libreta Universitaria</label>
-						    <input type="text" class="form-control" id="lu" data-th-field="*{lu}">
+						    <input type="text" class="form-control" id="lu" data-th-field="*{lu}" data-th-readonly=${band}>
 						  </div>
 						  <div class="col-md-12">
 						    <label for="nombre" class="form-label">Nombre</label>
